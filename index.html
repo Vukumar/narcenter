@@ -237,6 +237,57 @@ nav a{font-size:.9rem;white-space:nowrap}
 .btn-ghost.hdr-cta{display:inline-flex;align-items:center;gap:.45rem}
 .app .btn-copper{margin-right:.6rem;margin-bottom:.5rem}
 
+
+/* ===== Mobile / all-device fixes ===== */
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
+a.hdr-cta.btn-ghost,.play-badge.hdr-cta{flex:none}
+@media(max-width:1180px){
+  a.hdr-cta,a.btn-ghost.hdr-cta,a.play-badge.hdr-cta{display:none!important}
+  nav{max-height:0}
+  nav.open{max-height:calc(100vh - 72px);overflow-y:auto}
+}
+.svcs{grid-template-columns:repeat(auto-fit,minmax(min(300px,100%),1fr))}
+.values{grid-template-columns:repeat(auto-fit,minmax(min(230px,100%),1fr))}
+.app-list{grid-template-columns:repeat(auto-fit,minmax(min(210px,100%),1fr))}
+.fgrid{grid-template-columns:repeat(auto-fit,minmax(min(210px,100%),1fr))}
+.trust{grid-template-columns:repeat(auto-fit,minmax(min(200px,100%),1fr))}
+.split>*,.hero-grid>*{min-width:0}
+@media(max-width:600px){
+  :root{padding-top:0}
+  .wrap{width:calc(100% - 2rem)}
+  .bar{min-height:64px;gap:.6rem}
+  .emb{height:44px}
+  .logo{gap:.5rem;min-width:0}
+  .logo b{font-size:1.05rem}
+  .logo small{font-size:.54rem;letter-spacing:.1em}
+  .menu-btn{width:44px;height:44px}
+  .hero{padding:3rem 0 2rem}
+  .hero h1{max-width:none}
+  .hero-art{max-width:280px}
+  .cta-row .btn,.app .btn,.center .btn,.actions .btn{width:100%;text-align:center}
+  .app .play-badge{width:100%;justify-content:center;margin:.6rem 0 0}
+  .actions{flex-direction:column}
+  .float{gap:.5rem}
+  .float a,.float button{width:46px;height:46px}
+  footer{padding-bottom:5rem}
+  .panel dl{grid-template-columns:1fr;gap:.1rem}
+  .panel dt{margin-top:.5rem}
+  .svc{padding:1.2rem}
+  .founder blockquote{padding-top:2.2rem}
+  .photo img{min-height:220px}
+  .map{aspect-ratio:1/1}
+}
+@media(max-width:339px){.logo small{display:none}.logo b{font-size:1rem}}
+@media(max-height:480px) and (orientation:landscape){.float{display:none}}
+
+/* Mobile: compact Play Store button beside the hamburger */
+.app-mini{display:none}
+@media(max-width:1180px){
+  .app-mini{display:inline-flex;align-items:center;gap:.35rem;margin-left:auto;height:44px;padding:0 .75rem 0 .6rem;background:#000;color:#fff;border:1px solid #a6a6a6;border-radius:10px;text-decoration:none;font-weight:800;font-size:.85rem;flex:none}
+  .app-mini .mini-ico{width:20px;height:20px;flex:none}
+  .app-mini+.menu-btn{margin-left:0}
+}
+@media(max-width:339px){.app-mini span{display:none}.app-mini{padding:0 .6rem}}
 </style>
 </head>
 <body>
@@ -256,7 +307,7 @@ nav a{font-size:.9rem;white-space:nowrap}
       </ul>
     </nav>
     <a href="https://wa.me/9779851415682?text=Hello%20Narshima%20Scrap%20Center%2C%20I%20would%20like%20a%20scrap%20quote.%0A%0AScrap%20type%3A%0AEstimated%20weight%3A%0ASite%20location%3A%0APickup%20required%20%28Yes/No%29%3A%0AName%3A" class="btn btn-copper hdr-cta" target="_blank" rel="noopener">Contact Us</a><a href="https://play.google.com/store/apps/details?id=com.kabadiwala.kabadiwala_mobile" class="btn btn-ghost hdr-cta" target="_blank" rel="noopener" aria-label="Get the Kabadiwala app on Play Store"><svg class="gp" width="14" height="15" viewBox="0 0 24 26" aria-hidden="true"><polygon points="1,1 13,13 1,25" fill="#00C3FF"/><polygon points="1,1 17,9 13,13" fill="#00F076"/><polygon points="17,9 22,12 17,17 13,13" fill="#FFD500"/><polygon points="1,25 13,13 17,17" fill="#FF3A44"/></svg> Get the App</a>
-    <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="nav" aria-label="Open menu">&#9776;</button>
+    <a class="app-mini" href="https://play.google.com/store/apps/details?id=com.kabadiwala.kabadiwala_mobile" target="_blank" rel="noopener" aria-label="Get the Kabadiwala app on Play Store"><svg class="mini-ico" width="14" height="15" viewBox="0 0 24 26" aria-hidden="true"><polygon points="1,1 13,13 1,25" fill="#00C3FF"/><polygon points="1,1 17,9 13,13" fill="#00F076"/><polygon points="17,9 22,12 17,17 13,13" fill="#FFD500"/><polygon points="1,25 13,13 17,17" fill="#FF3A44"/></svg><span>App</span></a><button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="nav" aria-label="Open menu">&#9776;</button>
   </div>
 </header>
 
@@ -304,7 +355,8 @@ nav a{font-size:.9rem;white-space:nowrap}
       <li><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 21h18M5 21V9l7-5 7 5v12M9 21v-6h6v6"/></svg>Industrial Scrap Clearance</li>
       <li><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M2 6h12v10H2zM14 10h5l3 3v3h-8M6 19a2 2 0 100-4 2 2 0 000 4zM18 19a2 2 0 100-4 2 2 0 000 4z"/></svg>Reliable Pickup &amp; Logistics</li>
     </ul>
-      </div>
+    <p class="note">Image note: replace this patterned background with a real photograph of your scrap yard (organised metal piles, steel beams, truck, workers in PPE). Use <code>background-image</code> on <code>.hero</code> with the dark-green overlay kept.</p>
+  </div>
 </section>
 
 <section id="about">
